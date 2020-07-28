@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Medic</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-glyphicons.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript" src="../js/form_control.js"></script>
+	<script type="text/javascript" src="../js/ajax_data.js"></script>
+</head>
+<body class="small">
+
+
+	<header class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand text-right	button" href="#">Анализ</a>
+
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link	" href="#">Анализ 1</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 2</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 3</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 4</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 4</a>
+		      </li>
+		    </ul>
+		    <!-- <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form> -->
+		  </div>
+		</nav>
+    </header>
+
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <aside class="col-md-4 mt-2">
+                <!-- <span class="widget-title">Поиск</span> -->
+                  <form action="" class="search-form">
+                	<div class="form-group has-feedback">
+            		<input type="text" class="form-control form-control-sm" name="search" id="search" placeholder="Поиск">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            		</div>
+            	  </form>
+            	 <div class="search_table_div">
+            	  <table id="search_result_table" class="table table-bordered table-sm table-hover table-responsive-sm">
+            	  	<thead>
+            	  		<th>Рег№</th>
+            	  		<th>ФИО</th>
+            	  	</thead>
+            	  	<tbody id="search_result_body">
+            	  	</tbody>            	  	
+            	  </table>
+            	</div>
+          </aside>
+
+
+          <div class="col-md-8 order-md-1">
+
+          	<nav class="navbar navbar-expand-lg navbar-light bg-light mt-2">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 1</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 2</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 3</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 4</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 4</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+
+	      <h4 class="mb-1 text-center">Центральний Госпитал Р.Уз. Анализ крови</h4>
+	      <form id="analyse_A1" class="needs-validation" action="" method="post" novalidate=""data-ajax="false">
+	        <div class="row">
+	          <div class="col-md-9 mb-1">
+	            <label for="fullname">Ф.И.О.</label>
+	            <input type="text" class="form-control form-control-sm" name="fullname" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid first name is required.
+	            </div>
+	          </div>
+	          <div class="col-md-3 mb-1">
+	            <label for="datetime">Дата</label>
+	            <input type="date" class="form-control form-control-sm date" name="datetime" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid last name is required.
+	            </div>
+	          </div>
+	        </div>
+
+	        <div class="row">
+	        	<div class="col-md-4 mb-1">
+	        		<label for="no_ist">№ ист</label>
+	        		<input type="text" name="no_ist" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="otdel">Отд</label>
+	        		<input type="text" name="otdel" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="palata">Палата</label>
+	        		<input type="text" name="palata" class="form-control form-control-sm">
+	        	</div>
+	        	
+	        </div>
+
+	        <div class="mb-1 tablecontainer">
+	          <table class="table table-bordered table-sm table-responsive-sm" id="analyse_result_table">
+	          	<thead>
+	          		<th></th>
+	          		<th>Результат</th>
+	          		<th>Ед.измерения</th>
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Гемоглобин</td>
+	          			<td><input type="text" name="gemoglobin"></td>
+	          			<td>г/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эритроиты</td>
+	          			<td><input type="text" name="eritroiti"></td>
+	          			<td>10<sup>12</sup>/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Цветной показатель</td>
+	          			<td><input type="text" name="svetnoy_pokazatel"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Ратикулоциты</td>
+	          			<td><input type="text" name="retikulositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Тромбоциты</td>
+	          			<td><input type="text" name="trombositi"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лейкоциты</td>
+	          			<td><input type="text" name="leykositi"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Миелоциты</td>
+	          			<td><input type="text" name="mielositi"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Палочкоядерние</td>
+	          			<td><input type="text" name="palochkaya"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Сегментоядерние</td>
+	          			<td><input type="text" name="segmentoya"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эозинофилы</td>
+	          			<td><input type="text" name="eozinofili"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Базофилы</td>
+	          			<td><input type="text" name="bazofili"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лимфоциты</td>
+	          			<td><input type="text" name="limfositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Моноциты</td>
+	          			<td><input type="text" name="monositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Плазматич.клетки</td>
+	          			<td><input type="text" name="plazmakletki"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>СОЭ</td>
+	          			<td><input type="text" name="soe"></td>
+	          			<td>мм/Сохранить</td>
+	          		</tr>
+
+
+	          	</tbody>
+	          </table>
+	        </div>
+
+	        <h5 class="mb-1 text-center">Морфология эритроцитов</h5>
+
+	        <div class="mb-1">
+	          <label for="akizonitoz">Акизонитоз (макроциты, микроциты, мегалоиты)</label>
+	          <input type="text" class="form-control form-control-sm" name="akizonitoz" placeholder="">
+	          <div class="invalid-feedback">
+	            Please enter a valid email address for shipping updates.
+	          </div>
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="poykiloitoz">Пойкилоитоз</label>
+	          <input type="text" class="form-control form-control-sm" name="poykiloitoz" placeholder="	" required="">
+	          <div class="invalid-feedback">
+	            Please enter your shipping address.
+	          </div>
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="pelixromatofiliya">Пелихроматофилия</label>
+	          <input type="text" class="form-control form-control-sm" name="pelixromatofiliya" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="telsakolsa">Тельца Жолли, кольца Кебота</label>
+	          <input type="text" class="form-control form-control-sm" name="telsakolsa" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="eritro">Эритро, нормобласты (на 100 лейкоитов)</label>
+	          <input type="text" class="form-control form-control-sm" name="eritro" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="megaloblasti">Мегалобласты</label>
+	          <input type="text" class="form-control form-control-sm" name="megaloblasti" placeholder="">
+	        </div>
+
+	        <h5 class="mb-1 text-center">Морфология лейкоцитов</h5>
+
+	        <div class="mb-1">
+	          <label for="gipersegmentaria">Гиперсегментария ядер</label>
+	          <input type="text" class="form-control form-control-sm" name="gipersegmentaria" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="zernistost">Токсогенная зернистость</label>
+	          <input type="text" class="form-control form-control-sm" name="zernistost" placeholder="">
+	        </div>
+
+	        <hr class="mb-1">
+	        <div class="justify-content-center mb-3">
+	        	<center>
+	        		<button id="save_A1" class="btn btn-primary btn-sm" type="submit">Сохранить</button>
+	        	</center>
+	        </div>
+	      </form>
+
+	      <form id="analyse_A2" class="needs-validation" action="" method="post" novalidate=""data-ajax="false">
+
+	      	<div class="row">
+	          <div class="col-md-9 mb-1">
+	            <label for="fullname">Ф.И.О.</label>
+	            <input type="text" class="form-control form-control-sm" name="fullname" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid first name is required.
+	            </div>
+	          </div>
+	          <div class="col-md-3 mb-1">
+	            <label for="datetime">Дата</label>
+	            <input type="date" class="form-control form-control-sm date" name="datetime" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid last name is required.
+	            </div>
+	          </div>
+	        </div>
+
+	        <div class="row">
+	        	<div class="col-md-4 mb-1">
+	        		<label for="no_ist">№ ист</label>
+	        		<input type="text" name="no_ist" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="otdel">Отд</label>
+	        		<input type="text" name="otdel" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="palata">Палата</label>
+	        		<input type="text" name="palata" class="form-control form-control-sm">
+	        	</div>
+	        	
+	        </div>
+
+	        <div class="mb-1 tablecontainer">
+	          <table class="table table-bordered table-sm table-responsive-sm" id="analyse2_result_table">
+	          	<thead>
+	          		<th></th>
+	          		<th>Результат</th>
+	          		<th>Ед.измерения</th>
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Гемоглобин</td>
+	          			<td><input type="text" name="gemoglobin"></td>
+	          			<td>г/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эритроиты</td>
+	          			<td><input type="text" name="eritroiti"></td>
+	          			<td>10<sup>12</sup>/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Цветной показатель</td>
+	          			<td><input type="text" name="svetnoy_pokazatel"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Ратикулоциты</td>
+	          			<td><input type="text" name="retikulositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Тромбоциты</td>
+	          			<td><input type="text" name="trombositi"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лейкоциты</td>
+	          			<td><input type="text" name="leykositi"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Миелоциты</td>
+	          			<td><input type="text" name="mielositi"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Палочкоядерние</td>
+	          			<td><input type="text" name="palochkaya"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Сегментоядерние</td>
+	          			<td><input type="text" name="segmentoya"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эозинофилы</td>
+	          			<td><input type="text" name="eozinofili"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Базофилы</td>
+	          			<td><input type="text" name="bazofili"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лимфоциты</td>
+	          			<td><input type="text" name="limfositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Моноциты</td>
+	          			<td><input type="text" name="monositi"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Плазматич.клетки</td>
+	          			<td><input type="text" name="plazmakletki"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>СОЭ</td>
+	          			<td><input type="text" name="soe"></td>
+	          			<td>мм/Сохранить</td>
+	          		</tr>
+
+
+	          	</tbody>
+	          </table>
+	        </div>
+	      	
+	      </form>
+
+          </div> 
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="container bg-light text-white">
+      <div class="container py-4">
+        <div class="row justify-content-between align-items-center">
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

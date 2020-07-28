@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Medic</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-glyphicons.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script type="text/javascript" src="../js/form_control.js"></script>
+	<script type="text/javascript" src="../js/ajax_data.js"></script>
+</head>
+<body class="small bg-light">
+
+
+	<header class="container-fluid">
+		<nav class="navbar font-weight-bold font-italic text-uppercase navbar-expand-lg navbar-light text-primary border rounded" style="background-color: #007bff42;">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <a class="navbar-brand text-right	button" id="navMainLinkHosp" href="#">Госпитал</a>
+
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="nav_analyse" href="#">Анализ</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="nav_journal" href="#">Журнал</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="nav_uziman" href="#">УЗИ Мужское</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="nav_uziwoman" href="#">УЗИ Женское</a>
+		      </li>
+		      
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Анализ 4</a>
+		      </li>
+		    </ul>
+		    <!-- <form class="form-inline my-2 my-lg-0">
+		      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		    </form> -->
+		  </div>
+		</nav>
+    </header>
+
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <aside class="col-md-4 mt-2">
+                <!-- <span class="widget-title">Поиск</span> -->
+                  <form action="" class="search-form">
+                	<div class="form-group has-feedback">
+            		<input type="text" class="form-control form-control-sm" name="search" id="search" placeholder="Поиск">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            		</div>
+            	  </form>
+            	 <div class="search_table_div">
+            	  <table id="search_result_table" class="table table-bordered table-sm table-hover table-responsive-sm header-fixed">
+            	  	<thead>
+            	  		<th>Рег№</th>
+            	  		<th style="width: 100%;">ФИО</th>
+            	  	</thead>
+            	  	<div class="table_body_search"><tbody id="search_result_body">
+            	  	</tbody></div>          	  	
+            	  </table>
+            	</div>
+          </aside>
+
+
+          <!-- ************************************************* -->
+          <div id="mainPageHospital" style="display: none;" class="col-md-8 order-md-1 mt-2">
+          	<div class="row mb-1">
+          		<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">Analyse 1</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">12-03-2019</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+    			<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">World</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">Nov 12</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+    			<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">World</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">Nov 12</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+          	</div>
+          	<div class="row mb-1">
+          		<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">Analyse 1</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">12-03-2019</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+    			<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">World</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">Nov 12</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+    			<div class="col-md-4">
+			      	<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="/* display: none; */">
+			        <div class="col p-4 d-flex flex-column position-static">
+			          <strong class="d-inline-block mb-2 text-primary">World</strong>
+			          <h6 class="mb-0">Бахтиёр НУРУЛЛАЕВ РАХМАТЖОНОВИЧ</h6>
+			          <div class="mb-1 text-muted">Nov 12</div>
+			          <a href="#" class="stretched-link">Continue reading</a>
+			        </div>
+			      </div>
+    			</div>
+          	</div>
+          	
+          </div>
+          <!-- ***************************************************** -->
+
+
+          <div id="pageMainAnalyse" style="display: none;" class="col-md-8 order-md-1">
+
+          	<nav class="font-weight-bold font-italic text-uppercase text-warning navbar navbar-expand-lg navbar-light border rounded mt-2" style="background-color: #007bff42">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo" aria-controls="navbarTogglerDemo" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarTogglerDemo">
+		    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="a1_link">А1</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="a2_link">А2</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="a3_link">А3</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="a4_link">А4</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" id="a5_link">А5</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+
+	      <h4 id="analyse_head_name" class="mb-1 text-center">Центральний Госпитал Р.Уз. Анализ крови</h4>
+	      <form id="analyse_A1" class="needs-validation bg-gradient-primary" action="" method="post" novalidate=""data-ajax="false">
+	        <div class="row">
+	          <div class="col-md-9 mb-1">
+	            <label for="fullname">Ф.И.О.</label>
+	            <input type="text" class="form-control form-control-sm" name="fio" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid first name is required.
+	            </div>
+	          </div>
+	          <div class="col-md-3 mb-1">
+	            <label for="datetime">Дата</label>
+	            <input type="date" class="form-control form-control-sm date" name="datetime" placeholder="" value="" required="">
+	            <div class="invalid-feedback">
+	              Valid last name is required.
+	            </div>
+	          </div>
+	        </div>
+
+	        <div class="row">
+	        	<div class="col-md-4 mb-1">
+	        		<label for="no_ist">№ ист</label>
+	        		<input type="text" name="reg_no" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="otdel">Отд</label>
+	        		<input type="text" name="otdel" class="form-control form-control-sm">
+	        	</div>
+	        	<div class="col-md-4 mb-1">
+	        		<label for="palata">Палата</label>
+	        		<input type="text" name="palata" class="form-control form-control-sm">
+	        	</div>
+	        	
+	        </div>
+	       <div id="a1_body" style="display: none;">
+	        <div class="mb-1 tablecontainer">
+	          <table class="table table-bordered border-primary table-striped table-sm table-responsive-sm" id="analyse_result_table">
+	          	<thead class="bg-primary">
+	          		<th></th>
+	          		<th>Результат</th>
+	          		<th>Ед.измерения</th>
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Гемоглобин</td>
+	          			<td><input type="text" name="a1_6"></td>
+	          			<td>г/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эритроиты</td>
+	          			<td><input type="text" name="a1_7"></td>
+	          			<td>10<sup>12</sup>/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Цветной показатель</td>
+	          			<td><input type="text" name="a1_8"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Ратикулоциты</td>
+	          			<td><input type="text" name="a1_9"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Тромбоциты</td>
+	          			<td><input type="text" name="a1_10"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лейкоциты</td>
+	          			<td><input type="text" name="a1_11"></td>
+	          			<td>10/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Миелоциты</td>
+	          			<td><input type="text" name="a1_12"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Палочкоядерние</td>
+	          			<td><input type="text" name="a1_13"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Сегментоядерние</td>
+	          			<td><input type="text" name="a1_14"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Эозинофилы</td>
+	          			<td><input type="text" name="a1_15"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Базофилы</td>
+	          			<td><input type="text" name="a1_16"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Лимфоциты</td>
+	          			<td><input type="text" name="a1_17"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Моноциты</td>
+	          			<td><input type="text" name="a1_18"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Плазматич.клетки</td>
+	          			<td><input type="text" name="a1_19"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>СОЭ</td>
+	          			<td><input type="text" name="a1_20"></td>
+	          			<td>мм/Сохранить</td>
+	          		</tr>
+
+
+	          	</tbody>
+	          </table>
+	        </div>
+
+	        <h5 class="mb-1 text-center">Морфология эритроцитов</h5>
+
+	        <div class="mb-1">
+	          <label for="akizonitoz">Акизонитоз (макроциты, микроциты, мегалоиты)</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_21" placeholder="">
+	          <div class="invalid-feedback"></div>
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="poykiloitoz">Пойкилоитоз</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_22" placeholder="	" required="">
+	          <div class="invalid-feedback"></div>
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="pelixromatofiliya">Пелихроматофилия</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_23" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="telsakolsa">Тельца Жолли, кольца Кебота</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_24" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="eritro">Эритро, нормобласты (на 100 лейкоитов)</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_25" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="megaloblasti">Мегалобласты</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_26" placeholder="">
+	        </div>
+
+	        <h5 class="mb-1 text-center">Морфология лейкоцитов</h5>
+
+	        <div class="mb-1">
+	          <label for="gipersegmentaria">Гиперсегментария ядер</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_27" placeholder="">
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="zernistost">Токсогенная зернистость</label>
+	          <input type="text" class="form-control form-control-sm" name="a1_28" placeholder="">
+	        </div>
+	       </div>
+
+	       <div id="a2_body" style="display: none;">
+	       	<div class="mb-1 tablecontainer">
+	          <table class="table table-bordered border-primary table-striped table-sm table-responsive-sm" id="analyse2_result_table">
+	          	<thead class="bg-primary">
+	          		<th></th>
+	          		<th>Результат</th>
+	          		<th>Ед.измерения</th>
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Обший белос</td>
+	          			<td><input type="text" name="a2_6"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Глюкоза</td>
+	          			<td><input type="text" name="a2_7"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Холестерин (обший)</td>
+	          			<td><input type="text" name="a2_8"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Триглицериды</td>
+	          			<td><input type="text" name="a2_9"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>ЛПВП</td>
+	          			<td><input type="text" name="a2_10"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>ЛПНП(В-липопротеиды)</td>
+	          			<td><input type="text" name="a2_11"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Мочевина</td>
+	          			<td><input type="text" name="a2_12"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Креатинин</td>
+	          			<td><input type="text" name="a2_13"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Обший</td>
+	          			<td><input type="text" name="a3_14"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Прямой</td>
+	          			<td><input type="text" name="a2_15"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Непрямой</td>
+	          			<td><input type="text" name="a2_16"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>АЛТ</td>
+	          			<td><input type="text" name="a2_16"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>АСТ</td>
+	          			<td><input type="text" name="a2_17"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Щелоч. Фасфотаза</td>
+	          			<td><input type="text" name="a2_18"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>ГГТ</td>
+	          			<td><input type="text" name="a2_19"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Дивстаза крови</td>
+	          			<td><input type="text" name="a2_20"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Диастаза мочи</td>
+	          			<td><input type="text" name="a2_21"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>АСЛО</td>
+	          			<td><input type="text" name="a2_22"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>РФ</td>
+	          			<td><input type="text" name="a2_23"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>СРБ</td>
+	          			<td><input type="text" name="a2_24"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Калий</td>
+	          			<td><input type="text" name="a2_25"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Калций</td>
+	          			<td><input type="text" name="a2_26"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Железо</td>
+	          			<td><input type="text" name="a2_27"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>КФК--МК</td>
+	          			<td><input type="text" name="a2_28"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Тропонин</td>
+	          			<td><input type="text" name="a2_29"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>H. Pylori</td>
+	          			<td><input type="text" name="a2_30"></td>
+	          			<td></td>
+	          		</tr>
+
+
+	          	</tbody>
+	          </table>
+	        </div>
+	       </div>
+
+	       <div id="a3_body" style="display: none;">
+	       	<div class="mb-1 tablecontainer">
+	          <table class="table table-bordered border-primary table-striped table-sm table-responsive-sm" id="analyse2_result_table">
+	          	<thead class="bg-primary">
+	          		<th></th>
+	          		<th>Результат</th>
+	          		<th>Ед.измерения</th>
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Протромбин время/индекс/</td>
+	          			<td><input type="text" name="a3_6"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>ПО</td>
+	          			<td><input type="text" name="a3_7"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>МНО</td>
+	          			<td><input type="text" name="a3_8"></td>
+	          			<td></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Фибриноген</td>
+	          			<td><input type="text" name="a3_9"></td>
+	          			<td>г/л</td>
+	          		</tr>
+	          		<tr>
+	          			<td>АЧТВ</td>
+	          			<td><input type="text" name="a3_10"></td>
+	          			<td>сек.</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Гематокрит</td>
+	          			<td><input type="text" name="a3_11"></td>
+	          			<td>%</td>
+	          		</tr>
+	          		<tr>
+	          			<td>Тромботест</td>
+	          			<td><input type="text" name="a3_12"></td>
+	          			<td>Ст.</td>
+	          		</tr>
+	          	</tbody>
+	          </table>
+	        </div>
+	       </div>
+
+	       <div id="a4_body" style="display: none;">
+	       	<div class="mb-1 mt-2 tablecontainer">
+	          <table class="table table-bordered border-primary table-striped table-sm table-responsive-sm" id="analyse2_result_table">
+	          	<thead class="bg-primary">
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>Глюкоза крови 7.00</td>
+	          			<td><input type="text" name="a4_6"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Глюкоза крови 12.00</td>
+	          			<td><input type="text" name="a4_7"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Глюкоза крови 17.00</td>
+	          			<td><input type="text" name="a4_8"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>Глюкоза крови 22.00</td>
+	          			<td><input type="text" name="a4_9"></td>
+	          		</tr>
+	          	</tbody>
+	          </table>
+	        </div>
+	       </div>
+
+
+	       <div id="a5_body" style="display: none;">
+	       	<div class="mb-1 tablecontainer">
+	          <table class="table table-bordered border-primary table-striped table-sm table-responsive-sm" id="analyse2_result_table">
+	          	<thead class="bg-primary">
+	          		<th>Время</th>
+	          		<th>Количество</th>
+	          		<th>Удел.вес</th>	
+	          	</thead>
+	          	<tbody class="">
+	          		<tr>
+	          			<td>6.00 - 9.00</td>
+	          			<td><input type="text" name="a5_6"></td>
+	          			<td><input type="text" name="a5-6_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>09.00 - 12.00</td>
+	          			<td><input type="text" name="a5_7"></td>
+	          			<td><input type="text" name="a5_7_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>12.00 - 15.00</td>
+	          			<td><input type="text" name="a5_8"></td>
+	          			<td><input type="text" name="a5_8_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>15.00 - 18.00</td>
+	          			<td><input type="text" name="a5_9"></td>
+	          			<td><input type="text" name="a5_9_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>18.00 - 21.00</td>
+	          			<td><input type="text" name="a5_10"></td>
+	          			<td><input type="text" name="a5_10_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>21.00 - 24.00</td>
+	          			<td><input type="text" name="a5_11"></td>
+	          			<td><input type="text" name="a5_11_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>24.00 - 03.00</td>
+	          			<td><input type="text" name="a5_12"></td>
+	          			<td><input type="text" name="a5_12_2"></td>
+	          		</tr>
+	          		<tr>
+	          			<td>03.00 - 06.00</td>
+	          			<td><input type="text" name="a5_12"></td>
+	          			<td><input type="text" name="a5_12_2"></td>
+	          		</tr>
+	          	</tbody>
+	          </table>
+	        </div>
+
+	        <div class="mb-1">
+	          <label for="a5_13">Дневной диурез</label>
+	          <input type="text" class="form-control form-control-sm" name="a5_13" placeholder="">
+	        </div>
+	        <div class="mb-1">
+	          <label for="a5_14">Ночной диурез</label>
+	          <input type="text" class="form-control form-control-sm" name="a5_14" placeholder="">
+	        </div>
+	        <div class="mb-1">
+	          <label for="a5_15">Суточной диурез</label>
+	          <input type="text" class="form-control form-control-sm" name="a5_15" placeholder="">
+	        </div>
+
+	       </div>
+
+	       <hr class="mb-1">
+	        <div class="justify-content-center mb-3">
+	        	<center>
+	        		<button id="save_A1" class="btn btn-primary btn-sm" type="submit">Сохранить</button>
+	        	</center>
+	        </div>
+	      </form>
+
+	      </div> 
+
+	      <!-- Here comes uzi woman link page middle -->
+	      <!-- ***************************************** -->
+	      <div id="page_uzi_woman" class="col-md-8 order-md-1" style="display: none;">
+	      	<h4 class="mb-1 text-center">ЦЕНТР ЛУЧЕВОЙ ДИАГНОСТИКИ ЦГ МВД РУз</h4>
+	      	<h4 class="mb-1 text-center">ПРОТОКОЛ УЗИ</h4>
+	      	<label for="fio">Ф.И.О.</label>
+	        <input type="text" class="form-control form-control-sm" name="fio" placeholder="" value="" required="">
+	        <p><b>Печен</b> не увеличена. КВР правой доли <input type="text" name="uzi_w2"> мм(норма<150мм), ККР левой доли <input type="text" name="uzi_w3"><br>
+	        мм(норма<100мм). Контуры <input type="text" name="uzi_w4"> ровные. Капсула <input type="text" name="uzi_w5"> прослеживается на всем протяжении,<br>
+	        <input type="text" name="uzi_w6"> ровная. Толщина капсулы <input type="text" name="uzi_w7"> мм, гиперэхогенная, однородная. Паренхима <input type="text" name="uzi_w8"><br> однородная, <input type="text" name="uzi_w9"> зернистая. Нижний угол левой доли <input type="text" name="uzi_w10"> градусов. Внутрипеченочные желчные<br>
+	        ходы <input type="text" name="uzi_w11"> не расширены. Сосудистый рисунок не деформированб, не обеднен. Д печеночных вен<br>
+	        <input type="text" name="uzi_w12"> мм, портальной вены <input type="text" name="uzi_w13"> мм, селезеночной вены <input type="text" name="uzi_w14"> мм.<br>
+	        <input type="text" name="uzi_w15"><br>
+	        <b>Желчный пузырь:</b> <input type="text" name="uzi_w16"> визуализируется. <input type="text" name="uzi_w17"> мм. Стенки не деформированы, толщиной<br>
+	        (на уровное тела) <input type="text" name="uzi_w18"> мм. Содержимое <input type="text" name="uzi_w19"> однородное, анэхогенное.<br>
+	        <input type="text" name="uzi_w20"><br>
+	        <b>Поджелудочная железа:</b> не увеличена. Контуры ровные. Толщина головки <input type="text" name="uzi_w21"> мм, тела <input type="text" name="uzi_w22"><br>
+	        мм, хвоста <input type="text" name="uzi_w23"> мм. Паренхима однородная, гиперэхогенная, зернистая. Вирсунгов проток не расширен.<br>
+	        <input type="text" name="uzi_w24"><br>
+	        <b>Селезенка</b> не увеличена. Размеры <input type="text" name="uzi_w25"> мм. Контуры <input type="text" name="uzi_w26"> ровные. Капсула прослеживается на <br>
+	        всем протяжении. Паренхима однородная, зернистая.<br>
+	        <input type="text" name="uzi_w27"><br>
+	        <b>Почки: Правая</b> <input type="text" name="uzi_w28"> мм. Топография не изменена. Контуры <input type="text" name="uzi_w29"> ровный. Капсула<br>
+	        <input type="text" name="uzi_w30"> прослеживается на всем протяжении <input type="text" name="uzi_w31"> мм гиперэхогенная. Толщина почечной паренхимы<br>
+	        <input type="text" name="uzi_w32">мм. Паренхима однородная, зернистая. Сосудистый рисунок паренхимы <input type="text" name="uzi_w33"><br> недеформирован. Ч.Л.С. <input type="text" name="uzi_w34"> нерасширен, <input type="text" name="uzi_w35"> неформирован. Мочеточник не расришен, не физуализируется.<br>
+	        <input type="text" name="uzi_w36"><br>
+	        <b>Левая</b> <input type="text" name="uzi_w37"> мм. Топография не изменена. Контуры <input type="text" name="uzi_w38"> ровный. Капсула <input type="text" name="uzi_w39"> прослеживается на всем протяженжии <input type="text" name="uzi_w40"> мм гиперэхогенная. Толщина почечной паренхимы <input type="text" name="uzi_w41"> мм. Паренхима однородная, зернистая. Сосудистый рисунок паренхимы <input type="text" name="uzi_w42"><br> недеформирован. Ч.Л.С. <input type="text" name="uzi_w43"> нерасширен, <input type="text" name="uzi_w44"> неформирован. Мочеточник не расришен, не физуализируется.<br>
+	        <input type="text" name="uzi_w45"><br>
+	        <b>Мочевой пузырь</b> не деформирован, обычной формы. Стенул толщиной <input type="text" name="uzi_w46"> мм(в норме 3-7мм) (при объеме мочквого пузыря <input type="text" name="uzi_w47"> мл), не деформырованы. Содержимое однородное. После опорожнения количество остаточной мочи <input type="text" name="uzi_w48"> куб/см.<br><input type="text" name="uzi_w49"><br>
+	        <b>МАТКА:</b> позиция <input type="text" name="uzi_w50"> (варианты: ante-, retro-, dextro-, sinistro)<br> положение <input type="text" name="uzi_w51"> (варианты: anteflexio, nonflexio, retroflexio)<br> Форма в норме грушевидная. Размеры: длина <input type="text" name="uzi_w52"> (в норме 42-70 мм); толщина <input type="text" name="uzi_w53"> (в норме 33-46 мм); ширина <input type="text" name="uzi_w54"> (в норме 42-60 мм). Контур в норме ровный, четкий. Эхоструктура миометрия в норме<br><input type="text" name="uzi_w55"> однородная<br>
+	        Эхогенность миометрия в норме средная <input type="text" name="uzi_w56">. Толщина эндометрия (М-эхо) <input type="text" name="uzi_w57"> мм (в норме зависит от дня менстуального цикла, максимально 15±3 мм). Яичники: OD - OS (топография в норме на расстоянии 20-40 мм от матки). Размеры: <input type="text" name="uzi_w58"> (длина в норме 20-45 мм; толщина в норме 15-25 мм; ширина в норме 20-30 мм). Контур в норме ровный, четкий. Эхоструктура фолликулярный аппарат <input type="text" name="uzi_w59"> ( в норме ячеистая). Эхогенность одноролная<br><input type="text" name="uzi_w60"><br><b>ВЫВОД: Эхопризнаки:</b><br><input type="text" name="uzi_w61"><br><b>Врач: </b><input type="text" name="uzi_w62">
+	        </p>
+	        <hr class="mb-1">
+	        <div class="justify-content-center mb-3">
+	        	<center>
+	        		<button id="uzi_woman_save" class="btn btn-primary btn-sm" type="submit">Сохранить</button>
+	        	</center>
+	        </div>
+	      </div>
+	      <!-- ***************************************** -->
+
+
+	      <div id="page_uzi_man" class="col-md-8 order-md-1" style="display: none;">
+	      	<h4 class="mb-1 text-center">ЦЕНТР ЛУЧЕВОЙ ДИАГНОСТИКИ ЦГ МВД РУз</h4>
+	      	<h4 class="mb-1 text-center">ПРОТОКОЛ УЗИ</h4>
+	      	<div class="row">
+	          <div class="col-md-8 mb-1">
+	            <label for="fio">Ф.И.О.</label>
+	            <input type="text" class="form-control form-control-sm" name="fio" placeholder="" value="" required="">
+	          </div>
+	          <div class="col-md-2 mb-1">
+	            <label for="datetime">Дата</label>
+	            <input type="date" class="form-control form-control-sm date" name="datetime" placeholder="" value="" required="">
+	          </div>
+	          <div class="col-md-2 mb-1">
+	        		<label for="otdel">Отд.</label>
+	        		<input type="text" name="otdel" class="form-control form-control-sm">
+	       	  </div>
+	        </div>
+	        <p><b>Печен</b> не увеличена. КВР правой доли <input type="text" name="uzi_m4"> мм(норма<150мм), ККР левой доли <input type="text" name="uzi_m5"><br>
+	        мм(норма<100мм). Контуры <input type="text" name="uzi_m6"> ровные. Капсула <input type="text" name="uzi_m7"> прослеживается на всем протяжении,<br>
+	        <input type="text" name="uzi_m8"> ровная. Толщина капсулы <input type="text" name="uzi_m9"> мм, гиперэхогенная, однородная. Паренхима <input type="text" name="uzi_m10"><br> однородная, <input type="text" name="uzi_m11"> зернистая. Нижний угол левой доли <input type="text" name="uzi_m12"> градусов. Внутрипеченочные желчные<br>
+	        ходы <input type="text" name="uzi_m13"> не расширены. Сосудистый рисунок не деформированб, не обеднен. Д печеночных вен<br>
+	        <input type="text" name="uzi_m14"> мм, портальной вены <input type="text" name="uzi_m15"> мм, селезеночной вены <input type="text" name="uzi_m16"> мм.<br>
+	        <input type="text" name="uzi_m17"><br>
+	        <b>Желчный пузырь:</b> <input type="text" name="uzi_m18"> визуализируется. <input type="text" name="uzi_m19"> мм. Стенки не деформированы, толщиной<br>
+	        (на уровное тела) <input type="text" name="uzi_m20"> мм. Содержимое <input type="text" name="uzi_m21"> однородное, анэхогенное.<br>
+	        <input type="text" name="uzi_m22"><br>
+	        <b>Поджелудочная железа:</b> не увеличена. Контуры ровные. Толщина головки <input type="text" name="uzi_m23"> мм, тела <input type="text" name="uzi_m24"><br>
+	        мм, хвоста <input type="text" name="uzi_m25"> мм. Паренхима однородная, гиперэхогенная, зернистая. Вирсунгов проток не расширен.<br>
+	        <input type="text" name="uzi_m26"><br>
+	        <b>Селезенка</b> не увеличена. Размеры <input type="text" name="uzi_m27"> мм. Контуры <input type="text" name="uzi_m28"> ровные. Капсула прослеживается на <br>
+	        всем протяжении. Паренхима однородная, зернистая.<br>
+	        <input type="text" name="uzi_m29"><br>
+	        <b>Почки: Правая</b> <input type="text" name="uzi_m30"> мм. Топография не изменена. Контуры <input type="text" name="uzi_m31"> ровный. Капсула<br>
+	        <input type="text" name="uzi_m32"> прослеживается на всем протяжении <input type="text" name="uzi_m33"> мм гиперэхогенная. Толщина почечной паренхимы<br>
+	        <input type="text" name="uzi_m34">мм. Паренхима однородная, зернистая. Сосудистый рисунок паренхимы <input type="text" name="uzi_m35"><br> недеформирован. Ч.Л.С. <input type="text" name="uzi_m36"> нерасширен, <input type="text" name="uzi_m37"> неформирован. Мочеточник не расришен, не физуализируется.<br>
+	        <input type="text" name="uzi_m38"><br>
+	        <b>Левая</b> <input type="text" name="uzi_m39"> мм. Топография не изменена. Контуры <input type="text" name="uzi_m40"> ровный. Капсула <input type="text" name="uzi_m41"> прослеживается на всем протяженжии <input type="text" name="uzi_m42"> мм гиперэхогенная. Толщина почечной паренхимы <input type="text" name="uzi_m43"> мм. Паренхима однородная, зернистая. Сосудистый рисунок паренхимы <input type="text" name="uzi_m44"><br> недеформирован. Ч.Л.С. <input type="text" name="uzi_m45"> нерасширен, <input type="text" name="uzi_m46"> неформирован. Мочеточник не расришен, не физуализируется.<br>
+	        <input type="text" name="uzi_m47"><br>
+	        <b>Мочевой пузырь</b> не деформирован, обычной формы. Стенул толщиной <input type="text" name="uzi_m48"> мм(в норме 3-7мм) (при объеме мочквого пузыря <input type="text" name="uzi_m49"> мл), не деформырованы. Содержимое однородное. После опорожнения количество остаточной мочи <input type="text" name="uzi_m50"> куб/см.<br><input type="text" name="uzi_m51"><br>
+	        <b>Предстательная железа.</b> <input type="text" name="uzi_m52"> мм. (в норме длина 24-41 мм, толщина 16-25мм, ширина 27-43мм). Топография (в норме между мочевым пузырем и передной стенкой прямой кишки ровный, <input type="text" name="uzi_m53"> <input type="text" name="uzi_m54">	четкий. Капсула прослеживается на всем протяжении (в норме 1-2мм). Обьем <input type="text" name="uzi_m55"> см куб (в норме не более 20см куб). Эхоструктура в норме однородная.<br>
+	        <input type="text" name="uzi_m56"><br>
+	        <b>ВЫВОД: Эхопризнаки:</b><br><input type="text" name="uzi_m57"><br><b>Врач: </b><input type="text" name="uzi_m58">
+	        <hr class="mb-1">
+	        <div class="justify-content-center mb-3">
+	        	<center>
+	        		<button id="uzi_man" class="btn btn-primary btn-sm" type="submit">Сохранить</button>
+	        	</center>
+	        </div>
+	      </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="container bg-light text-white">
+      <div class="container py-4">
+        <div class="row justify-content-between align-items-center">
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
